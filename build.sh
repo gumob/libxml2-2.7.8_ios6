@@ -99,7 +99,7 @@ mkdir -p $LOCAL_OUTDIR/arm7 $LOCAL_OUTDIR/i386 $LOCAL_OUTDIR/arm7s
 make clean 2> /dev/null
 make distclean 2> /dev/null
 setenv_arm7
-./configure --host=arm-apple-darwin7 --enable-shared=no ${CONFIGURE_OPTIONS} --prefix $LOCAL_OUTDIR
+./configure --host=arm-apple-darwin7 --enable-shared=no --enable-thread-safe ${CONFIGURE_OPTIONS} --prefix $LOCAL_OUTDIR
 make; make install
 mv build/lib/libxml2.a libxml2-armv7.a
 
@@ -107,7 +107,7 @@ mv build/lib/libxml2.a libxml2-armv7.a
 make clean 2> /dev/null
 make distclean 2> /dev/null
 setenv_arm7s
-./configure --host=arm-apple-darwin7s --enable-shared=no ${CONFIGURE_OPTIONS} --prefix $LOCAL_OUTDIR
+./configure --host=arm-apple-darwin7s --enable-shared=no --enable-thread-safe ${CONFIGURE_OPTIONS} --prefix $LOCAL_OUTDIR
 make; make install
 mv build/lib/libxml2.a libxml2-armv7s.a
 
@@ -115,7 +115,7 @@ mv build/lib/libxml2.a libxml2-armv7s.a
 make clean 2> /dev/null
 make distclean 2> /dev/null
 setenv_i386
-./configure --enable-shared=no ${CONFIGURE_OPTIONS} --prefix $LOCAL_OUTDIR
+./configure --enable-shared=no ${CONFIGURE_OPTIONS} --enable-thread-safe --prefix $LOCAL_OUTDIR
 make; make install
 mv build/lib/libxml2.a libxml2-i386.a
 
