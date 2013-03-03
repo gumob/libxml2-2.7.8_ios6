@@ -17,6 +17,8 @@
 # http://pastie.org/3429938
 #
 
+LIB_NAME="libxml2"
+
 GLOBAL_OUTDIR="`pwd`/build"
 LOCAL_OUTDIR="`pwd`/build"
 
@@ -101,7 +103,7 @@ make distclean 2> /dev/null
 setenv_arm7
 ./configure --host=arm-apple-darwin7 --enable-shared=no --enable-thread-safe ${CONFIGURE_OPTIONS} --prefix $LOCAL_OUTDIR
 make; make install
-mv build/lib/libxml2.a libxml2-armv7.a
+mv build/lib/$LIB_NAME.a $LIB_NAME-armv7.a
 
 
 make clean 2> /dev/null
@@ -109,7 +111,7 @@ make distclean 2> /dev/null
 setenv_arm7s
 ./configure --host=arm-apple-darwin7s --enable-shared=no --enable-thread-safe ${CONFIGURE_OPTIONS} --prefix $LOCAL_OUTDIR
 make; make install
-mv build/lib/libxml2.a libxml2-armv7s.a
+mv build/lib/$LIB_NAME.a $LIB_NAME-armv7s.a
 
 
 make clean 2> /dev/null
@@ -117,10 +119,10 @@ make distclean 2> /dev/null
 setenv_i386
 ./configure --enable-shared=no ${CONFIGURE_OPTIONS} --enable-thread-safe --prefix $LOCAL_OUTDIR
 make; make install
-mv build/lib/libxml2.a libxml2-i386.a
+mv build/lib/$LIB_NAME.a $LIB_NAME-i386.a
 
 
-xcrun -sdk iphoneos lipo -arch armv7 libxml2-armv7.a -arch armv7s libxml2-armv7s.a -arch i386 libxml2-i386.a -create -output build/libxml2.a
+xcrun -sdk iphoneos lipo -arch armv7 $LIB_NAME-armv7.a -arch armv7s $LIB_NAME-armv7s.a -arch i386 $LIB_NAME-i386.a -create -output build/$LIB_NAME.a
 
 
 
