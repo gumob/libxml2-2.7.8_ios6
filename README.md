@@ -11,6 +11,6 @@ Build thread safe libxml2 for iOS 6
    Example: $(SRCROOT)/Submodules/libxml2-2.7.8_ios6<br/>
 
 
-Referenced
+Referenced<br/>
 http://coin-c.tumblr.com/post/18063869172/thread-safe-xmllib2<br/>
 http://pastie.org/3429938<br/>
