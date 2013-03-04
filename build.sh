@@ -25,7 +25,7 @@ LOCAL_OUTDIR="`pwd`/build"
 IOS_BASE_SDK="6.1"
 IOS_DEPLOY_TGT="6.0"
 
-CONFIGURE_OPTIONS="--without-zlib --without-iconv --with-threads"
+CONFIGURE_OPTIONS="--with-zlib --with-modules --with-valid --with-tree --with-xpath --with-xptr --with-modules --with-reader --with-regexps --with-schemas --with-html --with-iconv --with-threads"
 
 setenv_all()
 {
@@ -101,7 +101,7 @@ mkdir -p $LOCAL_OUTDIR/arm7 $LOCAL_OUTDIR/i386 $LOCAL_OUTDIR/arm7s
 make clean 2> /dev/null
 make distclean 2> /dev/null
 setenv_arm7
-./configure --host=arm-apple-darwin7 --enable-shared=no --enable-thread-safe ${CONFIGURE_OPTIONS} --prefix $LOCAL_OUTDIR
+./configure --host=arm-apple-darwin7 --enable-shared=no ${CONFIGURE_OPTIONS} --prefix $LOCAL_OUTDIR
 make; make install
 mv build/lib/$LIB_NAME.a $LIB_NAME-armv7.a
 
@@ -109,7 +109,7 @@ mv build/lib/$LIB_NAME.a $LIB_NAME-armv7.a
 make clean 2> /dev/null
 make distclean 2> /dev/null
 setenv_arm7s
-./configure --host=arm-apple-darwin7s --enable-shared=no --enable-thread-safe ${CONFIGURE_OPTIONS} --prefix $LOCAL_OUTDIR
+./configure --host=arm-apple-darwin7s --enable-shared=no ${CONFIGURE_OPTIONS} --prefix $LOCAL_OUTDIR
 make; make install
 mv build/lib/$LIB_NAME.a $LIB_NAME-armv7s.a
 
@@ -117,7 +117,7 @@ mv build/lib/$LIB_NAME.a $LIB_NAME-armv7s.a
 make clean 2> /dev/null
 make distclean 2> /dev/null
 setenv_i386
-./configure --enable-shared=no ${CONFIGURE_OPTIONS} --enable-thread-safe --prefix $LOCAL_OUTDIR
+./configure --enable-shared=no ${CONFIGURE_OPTIONS} --prefix $LOCAL_OUTDIR
 make; make install
 mv build/lib/$LIB_NAME.a $LIB_NAME-i386.a
 
